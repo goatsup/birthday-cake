@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 50px;
+    }
+    .card {
+      background-color: #ffebcd;
+      border: 2px solid #f5deb3;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+    }
+    .card h1 {
+      color: #ff6347;
+    }
+    .countdown {
+      font-size: 24px;
+      color: #6a5acd;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 Happy Birthday! 🎂</h1>
+    <p class="countdown" id="countdown"></p>
+  </div>
+
+  <script>
+    // Countdown Logic
+    const birthday = new Date('YYYY-MM-DD'); // Replace YYYY-MM-DD with the birthday date
+    const countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = birthday - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        countdownElement.innerText = `${days} days left until your birthday!`;
+      } else {
+        countdownElement.innerText = "It's your birthday today! 🎉";
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000 * 60 * 60 * 24); // Update once per day
+  </script>
+</body>
+</html>
